@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  airtime:
+    image: voxbox/t2-airtime:ruby  
+    environment:
+      - T2_SHOP_USER=
+      - T2_AIRTIME_KEY= 
+      - T2_CURRENCY=
+    ports:
+      - "8080:3000"  
+    networks:
+      - web
+networks:
+  web: 
