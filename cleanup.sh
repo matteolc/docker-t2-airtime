@@ -15,7 +15,9 @@
 
 echo "cleaning up ..."
 
-STACK_NAME=web
+STACK_NAME=t2-airtime
 
 docker stack rm $STACK_NAME
 docker swarm leave -f
+
+docker rm $(docker ps -a -q)

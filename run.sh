@@ -14,7 +14,11 @@
 # limitations under the License.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-STACK_NAME=web
+STACK_NAME=t2-airtime
+echo "---------------------------------------------------------------------"
+echo "Getting latest image"
+echo "---------------------------------------------------------------------"
+docker image pull voxbox/${STACK_NAME}
 echo "---------------------------------------------------------------------"
 echo "Cleaning up"
 echo "---------------------------------------------------------------------"
