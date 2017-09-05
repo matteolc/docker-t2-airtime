@@ -5,7 +5,6 @@ services:
     environment:
       - T2_SHOP_USER=
       - T2_AIRTIME_KEY=
-      - T2_CURRENCY=
     ports:
       - "8080:3000"  
     networks:

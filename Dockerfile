@@ -12,11 +12,9 @@ LABEL \
 ARG APP_NAME
 ARG T2_SHOP_USER 
 ARG T2_AIRTIME_KEY 
-ARG T2_CURRENCY
 
 ENV APP_HOME=app \
     APP_NAME=${APP_NAME:-app} \
-    T2_CURRENCY=${T2_CURRENCY:-USD} \
     RAILS_ENV=production  
 
 COPY app/ /${APP_NAME}/
@@ -36,7 +34,6 @@ RUN apk update && \
 
 RUN echo "T2_SHOP_USER=${T2_SHOP_USER}" > .env && \
     echo "T2_AIRTIME_KEY=${T2_AIRTIME_KEY}" >> .env && \
-    echo "T2_CURRENCY=${T2_CURRENCY}" >> .env && \
     bundle exec rake secret | awk '{print "SECRET_KEY_BASE="$1}' >> .env
 
 EXPOSE 3000/tcp

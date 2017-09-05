@@ -14,7 +14,6 @@ Set your TransferTo credentials in `docker-compose.yml`:
 
     T2_SHOP_USER=
     T2_AIRTIME_KEY=
-    T2_CURRENCY=
 
 ## Run with docker-compose
 
