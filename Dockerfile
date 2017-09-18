@@ -28,13 +28,15 @@ RUN apk update && \
     gem install \
       rails --no-rdoc --no-ri && \
     bundle install \
-      --without development test --deployment -j4 && \
+      --without development test --deployment -j20 && \
     apk del \
       build-base
 
-RUN echo "T2_SHOP_USER=${T2_SHOP_USER}" > .env && \
-    echo "T2_AIRTIME_KEY=${T2_AIRTIME_KEY}" >> .env && \
-    bundle exec rake secret | awk '{print "SECRET_KEY_BASE="$1}' >> .env
+ENV T2_SHOP_USER=${T2_SHOP_USER} \
+    T2_AIRTIME_KEY=${T2_AIRTIME_KEY} \
+    CORS_ORIGIN=*
+
+RUN bundle exec rake secret | awk '{print "SECRET_KEY_BASE="$1}' >> .env
 
 EXPOSE 3000/tcp
 CMD bundle exec puma

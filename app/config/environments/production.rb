@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.cache_store = :file_store, File.join(Dir.pwd, 'tmp', 'cache')
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
